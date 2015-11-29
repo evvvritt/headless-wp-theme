@@ -1,13 +1,17 @@
 #Headless WP Theme
 A theme that strips down Wordpress to use as a "headless CMS".
 
-**to install**
+<img src="https://raw.githubusercontent.com/evvvritt/headless-wp-theme/master/screenshot.png" />
+
+---
+
+##to install
 navigate to /wp-content/themes/
 ```
 git clone https://github.com/evvvritt/headless-wp-theme.git
 ```
 
-#####recommended wp plugins
+##recommended wp plugins
 *not required* for this theme but I recommend these back-end oriented plugins
 * WP REST API - json feeds
 * Advanced Custom Fields - custom fields
@@ -17,3 +21,4 @@ git clone https://github.com/evvvritt/headless-wp-theme.git
 * Force Regenerate Thumbnails - regenerate images and delete unused sizes
 * WP Migrate DB - export databases
 * UpDraftPlus Backup - backup files / databases
+
