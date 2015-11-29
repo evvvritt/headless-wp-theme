@@ -1,1 +1,1 @@
-<?php // paste the exported acf custom code into this file ?>
+<?php // paste the exported acf custom fields php code into this file ?>
