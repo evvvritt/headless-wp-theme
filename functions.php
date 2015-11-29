@@ -7,8 +7,7 @@
 \*------------------------------------*/
 
 // shortcuts
-define('THEMELIB', get_template_directory() . '/parts');
-define('BACK', THEMELIB ); //. '/back-end/');
+define('PARTS', get_template_directory() . '/parts');
 
 function is_localhost(){
     $whitelist = array('127.0.0.1','::1','localhost:8888','localhost');
@@ -103,7 +102,7 @@ function mce_mod( $init ) {
 // Load ACF fields from php file on remote/production
 // 		– prevents end users from adjusting the fields 
 // 		– using a php file also allows version control of acf fields :)
-// if(!is_localhost()){ require_once(BACK . 'acf-custom-fields.php'); } // advanced custom fields
+// if(!is_localhost()){ require_once(PARTS . 'acf-custom-fields.php'); } // advanced custom fields
 
 // WP Admin Menu
 //add_action('admin_menu', 'acf_admin_menu', 999 );
