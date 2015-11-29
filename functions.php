@@ -1,5 +1,7 @@
 <?php
 
+// uncomment the filters/functions you wish to activate
+
 /*------------------------------------*\
     Contexts
 \*------------------------------------*/
@@ -25,17 +27,18 @@ if(!is_user_logged_in()){ // redirect all non-logged-in users
     Images
 \*------------------------------------*/
 
-// recommended plugins for image management: 
-// ewww image optimizer (compression), imagemagick engine (sharpness), force regenerate thumbnails (regenerates and deletes older files)
-
-// theme support
+// thumbnails ?
 //add_theme_support('post-thumbnails');
 
-// image sizes
+// extra image sizes
 //add_image_size('xl', 1800, '', true); // XL Thumbnail
 //add_image_size('xxl', 2400, '', true); // XL Thumbnail
+
 // image quality
 add_filter( 'jpeg_quality', create_function( '', 'return 100;' ) );
+
+// recommended plugins for image management: 
+// ewww image optimizer (compression), imagemagick engine (sharpness), force regenerate thumbnails (regenerates and deletes older files)
 
 
 /*------------------------------------*\
@@ -47,8 +50,8 @@ add_action('admin_menu', 'edit_admin_menu', 999 );
 function edit_admin_menu() {
 
 	// homepage shortcut ?
-	$homeID = 18;
-    add_menu_page('Home','Home','edit_posts', 'post.php?post={$homeID}&action=edit','','dashicons-admin-home',10);
+	//$homeID = 18;
+    //add_menu_page('Home','Home','edit_posts', 'post.php?post={$homeID}&action=edit','','dashicons-admin-home',10);
 
     // options.php shortcut ?
     // add_options_page('All Settings', 'All Settings', 'administrator', 'options.php');
