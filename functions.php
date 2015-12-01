@@ -77,6 +77,8 @@ function edit_admin_menu() {
 \*------------------------------------*/
 
 // edit default wordpress tinymce wysiwyg editor
+
+
 // buttons
 //add_filter('mce_buttons','myplugin_tinymce_buttons'); // primary 
 //add_filter('mce_buttons_2','myplugin_tinymce_buttons'); // secondary
@@ -85,10 +87,38 @@ function myplugin_tinymce_buttons($buttons)
     $remove = array('outdent','indent','forecolor','alignleft','alignjustify','aligncenter','alignright','wp_more','underline');
     return array_diff($buttons,$remove);
  }
-// format options
-//add_filter('tiny_mce_before_init', 'mce_mod');
+
+// add styles / 'Format' dropdown - different from block_formats dropdown
+add_filter('mce_buttons_2', 'my_mce_buttons_2');
+function my_mce_buttons_2( $buttons ) {
+    array_unshift( $buttons, 'styleselect' );
+    return $buttons;
+}
+
+// formats
+add_filter('tiny_mce_before_init', 'mce_mod');
 function mce_mod( $init ) {
-    $init['block_formats'] = 'Paragraph=p;Header=h2;Sub-Header=h3;';
+
+    // block formats
+    $init['block_formats'] = 'Paragraph=p;Header=h2;Subheader=h3;';
+        
+    // custom styles
+    //      - NOTE: must enable my_mce_buttons_2 filter above to see the format selector
+    $style_formats = array(  
+            // Each array child is a format with it's own settings
+            array(  
+                'title' => 'Button',  
+                'block' => 'span',  
+                'classes' => 'button',
+                'wrapper' => true,
+                
+            ),
+        );  
+    // Insert the array, JSON ENCODED, into 'style_formats'
+    $init['style_formats'] = json_encode( $style_formats );
+    // Append these custom styles to the default 'Formats' select?
+    $init['style_formats_merge'] = false;
+
     return $init;
 }
 
