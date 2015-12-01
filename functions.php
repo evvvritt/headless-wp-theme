@@ -50,7 +50,7 @@ function edit_admin_menu() {
 
 	// homepage shortcut ?
 	//$homeID = 18;
-    //add_menu_page('Home','Home','edit_posts', 'post.php?post={$homeID}&action=edit','','dashicons-admin-home',10);
+    //add_menu_page('Home','Home','edit_posts', "post.php?post=$homeID&action=edit",'','dashicons-admin-home',10);
 
     // options.php shortcut ?
     // add_options_page('All Settings', 'All Settings', 'administrator', 'options.php');
